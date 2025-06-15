@@ -198,6 +198,8 @@ function resetGame() {
     document.getElementById("rangeSelect").value = "20";
     document.getElementById("gameOverOverlay").classList.remove("show");
     document.getElementById("winnerPopupContainer").innerHTML = "";
+    document.getElementById("playerList").innerHTML = "";
+    
   }
 }
 
