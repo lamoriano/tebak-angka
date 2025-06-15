@@ -13,8 +13,23 @@
 <div class="container">
   <h1 class="text-center mb-4">🎮 Game Tebak Angka Rahasia</h1>
 
+  <!-- Daftar Pemain -->
+  <div class="player-list text-center mb-3" id="playerList"></div>
+
+  <!-- Giliran Pemain -->
+  <h4 class="text-center mb-4" id="turnDisplay"></h4>
+
   <!-- Step 1: Pilih jumlah pemain dan rentang angka -->
   <div id="step-player-count" class="step text-center">
+    <div>
+      <h5 class="text-muted">Peraturan Permainan: </h5>
+      <p class="text-muted">Setiap pemain akan memilih angka secara acak dalam rentang yang telah ditentukan. </p>
+      <p class="text-muted">Pemain yang berhasil menebak angka rahasia dengan benar akan menjadi pemenang. Jika pemain memilih angka yang sama, maka pemain tersebut akan kalah.</p>
+      <p class="text-muted">Pemain yang kalah akan mendapatkan angka rahasia dari pemain lain. Permainan akan berlanjut hingga semua pemain mendapatkan angka rahasia.</p>
+    </div>
+    
+    <hr class="my-4">
+
     <h4>Pilih Jumlah Pemain (2 - 5)</h4>
     <div class="btn-group mt-3">
       <button class="btn btn-primary" onclick="setPlayerCount(2)">2 Pemain</button>
@@ -39,13 +54,12 @@
 
   <!-- Step 3: Area permainan -->
   <div id="game-area" class="mt-4" style="display:none;">
-    <h4 class="text-center" id="turnDisplay"></h4>
     <div class="row g-2 justify-content-center" id="numberButtons"></div>
     <div id="result" class="mt-4 fs-5 fw-bold text-danger text-center"></div>
 
     <!-- Tombol Kontrol -->
     <div class="game-controls d-flex justify-content-center gap-3">
-      <<!-- button class="btn btn-secondary" onclick="resetGame()">Reset</button> -->
+      <!-- button class="btn btn-secondary" onclick="resetGame()">Reset</button> -->
       <button class="btn btn-info" onclick="newGame()">New Game</button>
     </div>
   </div>
@@ -53,8 +67,14 @@
 
 <!-- Overlay untuk Kalah -->
 <div class="game-over-overlay" id="gameOverOverlay">
-  <div class="game-over-message" id="gameOverMessage"></div>
+  <div class="game-over-message" id="gameOverMessage">
+    Pesan
+    <button class="close-btn" onclick="hideGameOver()">×</button>
+  </div>
 </div>
+
+<!-- Popup untuk Menang -->
+<div id="winnerPopupContainer"></div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
